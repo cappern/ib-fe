@@ -1,0 +1,26 @@
+version: 3
+name: ipam-gateway
+port: {{ .Env.KRAKEND_PORT }}
+endpoints:
+  - endpoint: /ipam/subnets
+    method: POST
+    input_validation:
+      type: json
+      json_schema: schemas/subnet.json
+    backend:
+      - host:
+          - "https://{{ .Env.INFOBLOX_USER }}:{{ .Env.INFOBLOX_PASS }}@{{ .Env.INFOBLOX_HOST }}"
+        url_pattern: /wapi/v2.7/network
+        method: POST
+        encoding: json
+  - endpoint: /ipam/zones
+    method: POST
+    input_validation:
+      type: json
+      json_schema: schemas/zone.json
+    backend:
+      - host:
+          - "https://{{ .Env.INFOBLOX_USER }}:{{ .Env.INFOBLOX_PASS }}@{{ .Env.INFOBLOX_HOST }}"
+        url_pattern: /wapi/v2.7/zone_auth
+        method: POST
+        encoding: json

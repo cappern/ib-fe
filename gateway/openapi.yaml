@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: IPAM Gateway
+  version: '1.0.0'
+servers:
+  - url: http://{gateway}:{port}
+    variables:
+      gateway:
+        default: localhost
+      port:
+        default: '8080'
+paths:
+  /ipam/subnets:
+    post:
+      summary: Create subnet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subnet'
+      responses:
+        '200':
+          description: Created
+  /ipam/zones:
+    post:
+      summary: Create zone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Zone'
+      responses:
+        '200':
+          description: Created
+components:
+  schemas:
+    Subnet:
+      $ref: './schemas/subnet.json'
+    Zone:
+      $ref: './schemas/zone.json'

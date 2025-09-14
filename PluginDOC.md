@@ -9,6 +9,13 @@ Each plugin lives under `frontend/src/lib/modules/<plugin>/` and contains:
 - `routes/` – Svelte components implementing the plugin pages.
 - Optional supporting files such as settings modules or assets.
 
+## Root pages and navigation
+The sidebar renders a `PluginLink` for each module listed in `src/lib/modules.json`.
+When a user clicks a link, the component dynamically imports the plugin's root
+page at `frontend/src/routes/<plugin>/+page.svelte` before navigating. To work
+with this lazy loading mechanism, each root page must export a default Svelte
+component.
+
 ## Manifest
 The manifest is a JSON file that declares how the host should load the plugin. Fields:
 

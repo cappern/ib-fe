@@ -38,4 +38,8 @@ npm run generate
 
 The script supports creating, renaming, listing, and deleting modules. Each module is scaffolded with a CRUD page, an activity page using a Carbon DataTable, and admin settings and security pages. Modules are tracked in `src/lib/modules.json` to populate the sidebar.
 
+Navigation links are rendered with a `PluginLink` component that dynamically
+imports each module's root page (`src/routes/<module>/+page.svelte`) only when a
+user visits it.
+
 Generated files include inline comments to help you continue building out each module.

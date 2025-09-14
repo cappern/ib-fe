@@ -2,5 +2,12 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit()]
+        plugins: [sveltekit()],
+        test: {
+                include: ['src/**/*.{test,spec}.{js,ts}'],
+                coverage: {
+                        reporter: ['text', 'html'],
+                        include: ['src/lib/**/*.ts']
+                }
+        }
 });

@@ -1,16 +1,24 @@
 # IPAM Quality Layer Work Plan
+## Overview
+The app is named NETMax.
+Primary objective is to serve as a top system for other systems.
 
 ## Phase 1: MVP API Gateway
-- Choose KrakenD or Express-based gateway in front of Infoblox WAPI.
-- Implement endpoints for subnet creation, IP allocation, and DNS zone creation.
+- Choose KrakenD.
+- Implement endpoints for subnet CRUD and IP host CRUD for infoblox ddi wapi, 
 - Add JSON Schema validation to reject malformed payloads.
 - Enforce authentication/authorization via Entra ID.
 - Return normalized responses and log request IDs.
 
 ## Phase 2: Svelte UI for Manual Operations
-- Scaffold SvelteKit UI using Carbon Components for enterprise styling.
-- Implement forms for subnet and DNS zone creation.
-- Integrate MSAL.js for Entra ID login and include bearer tokens in gateway requests.
+- Scaffold SvelteKit UI using Carbon Components for enterprise styling, dark-80
+- The frontend should be designed in a modular manner, where each system is treated as a module.
+- Each system will have its own route with sub sequent sub route for each function / page.
+- Implement a interactive script for generating modules and their respective pages, functions, models etc. This has priority after the base layout is done.
+- Implement layout with uishell, sidebar for sub system pages, and a appswitcher for navigating between systems.
+- Logged in users are welcomed with a overview dashboard and key statistics.
+- As far it is possible, always use carbon-svelte components, if we need to create our own, make it re-usable so we stay consistent.
+- Do not implement live queries or connect front end with backend unless we have mock data to properly display every page/component.
 - Provide client-side validation and helpful error messages.
 
 ## Phase 3: Composite Actions

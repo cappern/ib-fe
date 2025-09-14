@@ -15,6 +15,7 @@
   import UserAvatar from 'carbon-icons-svelte/lib/UserAvatarFilledAlt.svelte';
   import { login } from '$lib/auth';
   import modules from '$lib/modules.json';
+  import PluginLink from '$lib/PluginLink.svelte';
 
   let { children } = $props();
   let switcherOpen = $state(false);
@@ -48,7 +49,7 @@
 <SideNav fixed isOpen={true} aria-label="Sidebar">
   <SideNavItems>
     {#each modules as mod}
-      <SideNavLink href={`/${mod}`}>{mod}</SideNavLink>
+      <PluginLink mod={mod} />
     {/each}
     <SideNavLink href="/admin">Admin</SideNavLink>
   </SideNavItems>

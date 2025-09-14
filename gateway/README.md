@@ -2,6 +2,7 @@
 
 This KrakenD configuration proxies Infoblox and exposes its IPAM API under the `/ipam` path. Clients interact with the gateway instead of contacting Infoblox directly.
 
+
 ## Architecture
 
 ```mermaid

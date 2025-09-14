@@ -1,0 +1,23 @@
+{
+  "name": "inventory",
+  "label": "Inventory",
+  "icon": "mdi:archive",
+  "version": "1.0.0",
+  "routes": [
+    {
+      "path": "/",
+      "entry": "./routes/+page.svelte",
+      "nav": { "label": "Inventory", "icon": "mdi:archive" }
+    },
+    {
+      "path": "/activity",
+      "entry": "./routes/activity/+page.svelte",
+      "nav": { "label": "Activity" }
+    },
+    {
+      "path": "/admin/settings",
+      "entry": "./routes/admin/settings/+page.svelte",
+      "nav": { "label": "Settings", "admin": true }
+    }
+  ]
+}

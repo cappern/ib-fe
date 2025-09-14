@@ -2,6 +2,15 @@
 
 This KrakenD configuration proxies Infoblox and exposes its IPAM API under the `/ipam` path. Clients interact with the gateway instead of contacting Infoblox directly.
 
+
+## Architecture
+
+```mermaid
+flowchart LR
+    Client[Client] -->|POST /ipam/subnets\nPOST /ipam/zones| KrakenD[KrakenD Gateway]
+    KrakenD -->|REST calls| Infoblox[(Infoblox IPAM)]
+```
+
 ## Endpoints
 
 - `POST http://<gateway>/ipam/subnets` – create subnets

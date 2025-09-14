@@ -1,38 +1,41 @@
-# sv
+# NETMax frontend
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+A SvelteKit-based user interface for managing networking tools within a large enterprise.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies and start the development server:
 
 ```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 ## Building
 
-To create a production version of your app:
+Create a production build and preview it locally:
 
 ```sh
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Checks
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Run linting and type checks:
+
+```sh
+npm run check
+```
+
+## Module generator
+
+Manage UI modules with the interactive generator:
+
+```sh
+npm run generate
+```
+
+The script supports creating, renaming, listing, and deleting modules. Each module is scaffolded with a CRUD page, an activity page using a Carbon DataTable, and admin settings and security pages. Modules are tracked in `src/lib/modules.json` to populate the sidebar.
+
+Generated files include inline comments to help you continue building out each module.

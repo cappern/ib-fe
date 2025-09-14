@@ -15,6 +15,7 @@
   import UserAvatar from 'carbon-icons-svelte/lib/UserAvatarFilledAlt.svelte';
   import { login } from '$lib/auth';
   import { getPlugins } from '$lib/pluginRegistry';
+
   import PluginLink from '$lib/PluginLink.svelte';
 
   const plugins = getPlugins();
@@ -51,6 +52,7 @@
   <SideNavItems>
     {#each plugins as plugin}
       <PluginLink mod={plugin.name} />
+
     {/each}
     <SideNavLink href="/admin">Admin</SideNavLink>
   </SideNavItems>
